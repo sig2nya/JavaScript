@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript DataType</title>
+</head>
+
+<body>
+    <h1>Primitive Type</h1>
+    <p id="result"></p>
+
+    <script>
+        // JavaScript Primitive Type : num, string, boolean, object, symbol, undefined(null과 같은 의미)
+
+
+        // 1. Num Type
+        var num1 = 10;
+        var num2 = 10.00;
+        var num3 = 10e6;
+        var num4 = 10e-6;
+
+        // 2. String Type
+        var str1 = "문자열 입니다.";
+        var str2 = "이것도 문자열 입니다.";
+        var str3 = "나의 이름은 '홍길동'이야.";
+        var str4 = '나의 이름도 "홍길동"이야.';
+        document.getElementById("result").innerHTML = (num1 + " " + str1);
+
+        // 3. boolean Type
+        document.getElementById("result").innerHTML = (num1 == num2 + " " + num1 === num2);
+
+        // 4. Symbol Type
+        var sym = Symbol("javaScript");
+        var symObj = Object(sym);
+
+        // 5. 객체
+        var dog = {name : "해피", age : 3};
+        document.getElementById("result").innerHTML = "강아지의 이름 : " + dog.name + " / 강아지의 나이 : " + dog.age;
+
+        // 6. undefined & null
+        var num;
+        var str = null;
+
+        // typeOf
+        typeof 10;
+        typeof "문자열"
+
+    </script>
+</body>
+</html>
