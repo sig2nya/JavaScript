@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수의기초</title>
+</head>
+<body>
+    <script>
+        function addNum(x, y){
+            return x + y;
+        }
+
+        document.write(addNum(1, 2)  + "</br>");
+
+        function multiNum(x, y){
+            return x * y;
+        }
+
+        var num = multiNum(3, 4);
+        document.write(num  + "</br>");
+
+        function sqr(x){
+            return x * x;
+        }
+
+        var sqrNum = sqr;
+        document.write(sqr(4) + "</br>");
+        document.write(sqrNum(4)); // 변수 sqrNum은 함수 sqr이다. 변수를 함수처럼 호출이 가능.
+    </script>
+</body>
