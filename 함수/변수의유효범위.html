@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>변수의 유효범위</title>
+</head>
+<body>
+    <script>
+        var num = 20;
+
+        function localNum(){
+            var num = 10;
+            document.write("함수 내부의 변수 타입 : " + typeof num + "</br>");
+        }
+
+        localNum();
+        document.write("함수 외부의 변수 타입 : " + typeof num + "</br>");
+
+        function globalNum(){
+            num = 10;
+            document.write("함수 내부의 변수 타입 : " + typeof num + "</br>");
+        }
+
+        globalNum();
+        document.write("함수 외부의 변수 타입 : " + window.num + "</br>");
+    </script>
+</body>
+</html>
