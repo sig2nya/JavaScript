@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 형변환</title>
+</head>
+
+<body>
+<h1>형변환</h1>
+<p id="result"></p>
+
+<script>
+    // 1. 묵시적 형변환
+    var num = 20;
+    num = "이십";
+    var num; // 자바스크립트는 한 변수에 대입은 여러번 가능하지만, 변수 재선언은 불가능합니다. 재선언문은 무시됩니다.
+
+    10 + "문자열"; // 문자열 연결을 위해 10이 문자열로 변경됨
+    "3" * "5"; // 곱셈 연산을 위해 두 문자열이 모두 숫자로 변경됨
+    1 - "문자열"; // NaN : Not a Number
+
+    // 2. 명시적 형변환
+    // 1) Number()
+    Number("10");
+
+    // 2) String()
+    String(true);
+
+    // 3) Boolean()
+    Boolean(0);
+
+    // 4) Object()
+    Object(3);
+
+    // 5) parseInt()
+    var e = 5;
+    e = e.toExponential(3);
+    document.getElementById("result").innerHTML = e;
+</script>
+</body>
+</html>
