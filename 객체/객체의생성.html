@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체의 생성</title>
+</head>
+<body>
+  <script>
+      // 1. literal 표기를 이용한 객체 생성
+    var kitty = {
+      name : "나비",
+      family : "코리안 숏 헤어",
+      age : 1,
+      weight : 0.1
+    }
+
+    // 2. 생성자를 이용한 객체 생성
+      var day = new Date();
+
+    // 3. Object.create() 메서드를 이용한 객체 생성
+      var obj = Object.create(null, {
+          x : {
+              value : 100, enumerable : true
+          },
+          y : {
+              value : 200, enumerable : true
+          }
+      });
+
+      document.write(obj.x);
+      document.write(obj.y);
+
+  </script>
+</body>
+</html>
