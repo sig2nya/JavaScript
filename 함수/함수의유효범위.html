@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수의 유효범위</title>
+</head>
+<body>
+  <script>
+      // 함수의 유효범위
+    var x = 10, y = 20;
+
+    function sub(){
+        return x - y;
+    }
+
+    document.write(sub() + "</br>");
+
+    function parentFunc(){
+        var x = 1, y = 2;
+        function add(){
+            return x + y; // 지역변수
+        }
+        return add(); // parentFunc의 내부 함수로 선언
+    }
+
+    document.write(parentFunc());
+
+    // 함수 호이스팅
+    var globalNum = 10;
+    function printNum(){
+        document.write("지역변수 globalNum 선언 전의 globalNum의 값은 " + globalNum + "입니다.</br>"); // undefined. 외부의 변수 참조 하지 않음.
+        var globalNum = 20;
+        document.write("지역변수 globalNum 선언 후의 globalNum의 값은 " + globalNum + "입니다.</br>");
+    }
+
+    printNum();
+  </script>
+</body>
+</html>

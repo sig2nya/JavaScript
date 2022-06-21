@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>미리 정의된 전역함수</title>
+</head>
+<body>
+    eval()</br>
+    isFinite()</br>
+    isNana()</br>
+    parseFloat()</br>
+    parseInt()</br>
+    decodeURI()</br>
+    decodeURIComponent()</br>
+    encodeURI()</br>
+    encodeURIComponent()</br>
+    escape()</br>
+    unscape()</br>
+    Number()</br>
+    String()</br>
+  <script>
+        // 1. eval() : 문자열로 표현된 자바스크립트 코드를 실행
+        var x = 10, y = 20;
+        var a = eval("x + y"); var b = eval("y * 3");
+        document.write(a + "</br>" + b);
+
+        // 2. isFinite() : 전달된 값이 유한한 수인지를 검사
+        isFinite(123);
+        isFinite(123e100);
+        isFinite(0);
+        isFinite(true); // true
+        isFinite(false); // true
+        isFinite(null); // true
+        isFinite(""); // true
+        isFinite("123"); // true
+
+        isFinite("문자열"); // false
+        isFinite(undefined); // false
+        isFinite(NaN); // false
+
+        // 3. isNaN() : 전달된 값이 NaN인지 검사
+        isNaN(123);       // false
+        isNaN(123e100);   // false
+        isNaN(0);         // false
+        isNaN(true);      // false
+        isNaN(false);     // false
+        isNaN(null);      // false
+        isNaN("123");     // false
+        isNaN("");        // false
+
+        isNaN("문자열");  // true
+        isNaN(undefined); // true
+        isNaN(NaN);       // true
+
+        // 4. parseFloat() / parseInt()
+        parseFloat("123");        // 123
+        parseFloat("123.000");    // 123
+        parseFloat("123.456");    // 123.456
+        parseFloat("12 34 56");   // 12
+        parseFloat(" 123 ");      // 123
+        parseFloat("123 초콜릿"); // 123
+        parseFloat("초콜릿 123"); // NaN
+
+        parseInt("123");        // 123
+        parseInt("123.000");    // 123
+        parseInt("123.456");    // 123
+        parseInt("12 34 56");   // 12
+        parseInt(" 123 ");      // 123
+        parseInt("123 초콜릿"); // 123
+        parseInt("초콜릿 123"); // NaN
+
+        parseInt("10", 10);     // 10
+        parseInt("10", 8);      // 8
+        parseInt("10", 16);     // 16
+        parseInt("0x10");       // 16
+  </script>
+</body>
+</html>
