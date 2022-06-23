@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>전역객체와 래퍼객체</title>
+</head>
+<body>
+    1. 표준 객체</br>
+     - Number 객체</br>
+     - Math 객체</br>
+     - Date 객체</br>
+     - String 객체</br>
+     - Array 객체</br>
+    <script>
+        // 래퍼 객체
+        var str = "문자열";
+        var len = str.length;
+        var strObj = new String(str);
+        str.length;
+        str == strObj; // true
+    </script>
+</body>
+</html>

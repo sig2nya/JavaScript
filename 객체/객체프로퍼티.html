@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체의 프로퍼티</title>
+</head>
+<body>
+    1. hasOwnProperty()</br>
+    2. propertyIsEnumerable()</br>
+    3. isPrototypeOf()</br>
+    4. isExtensible()</br>
+    5. toString()</br>
+    6. valueOf()</br>
+  <script>
+    function Dog(color, name, age, family){
+        this.color = color; this.name = name; this.age = age; this.family = family;
+        this.breed = function(){
+            return this.color + " " + this.family;
+        }
+    }
+
+    // 1. hasOwnPropery : 특정 property가 해당 객체에 존재하는지 검사
+    var myDog = new Dog("검정색", "곰", 3, "불독");
+    myDog.hasOwnProperty("color"); // true
+    myDog.hasOwnProperty("breed"); // true
+    myDog.hasOwnProperty("class"); // 상속받은 프로퍼티. 즉, false 반환
+
+    // 2. propertyIsEnumerable : 특정 property가 해당 객체에 존재하고, 열거할 수 있는지 검사
+    myDog = new Dog("흰색", "마루", 1);
+    Object.defineProperty(myDog, 'color', {enumerable : false});
+
+    document.write(myDog.propertyIsEnumerable("color") + "</br>");
+    document.write(myDog.propertyIsEnumerable("name" + "</br>"));
+    document.write(myDog.propertyIsEnumerable("age"));
+
+    // 3. isPrototypeOf : 프로토타입 체인에 현재 객체가 존재하는지 검사
+    var day = new Date();
+    document.write(Date.prototype.isPrototypeOf(day));
+    document.write(Date.prototype.isPrototypeOf(new String()));
+
+    // 4. isExtensible : 해당 객체에 새로운 property를 추가할 수 있는지 검사
+    document.write(Object.isExtensible(day) + "</br>");
+    var myDay = Object.preventExtensions(day);
+    document.write(Object.isExtensible(day));
+
+    // 5. toString
+    var arr = [10, "문자열", true];
+    var bool = false;
+    function func(){
+        return 0;
+    }
+    arr.toString();
+    bool.toString();
+    func().toString();
+
+    // 6. valueOf
+    function func(n){
+        this.number = n;
+    }
+    myFunc = new func(4);
+    document.write(myFunc + 5);
+
+    func.prototype.valueOf = function(){
+        return this.number;
+    }
+
+    document.write(myFunc + 5);
+  </script>
+</body>
+</html>

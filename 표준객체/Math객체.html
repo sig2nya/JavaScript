@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math 객체</title>
+</head>
+<body>
+  <script>
+    // 1. min
+    Math.min(); // Infinity
+    Math.min(1, 10, -100, -10, 1000, 0); // -100
+    Math.min(1, 10, -100, -10, "-1000", 0); // -1000
+    Math.min(1, 10, -100, "문자열", 0) // NaN
+
+    // 2. max
+    Math.max(); // Infinity
+    Math.max(1, 10, -100, -10, 100, 0); // 100
+    Math.max(1, 10, -100, -10, "1000", 0) // 1000
+    Math.max(1, 10, -100, -10, "문자열", 0); // NaN
+
+    // 3. random
+    var min = 10, max = 20;
+    Math.random(); // [0,1)
+    Math.random() * (max - min) + min; // [min, max)
+
+    // 4. round
+    Math.round(10.49); // 10
+    Math.round(10.5); // 11
+    Math.round(-10.5); // -10
+    Math.round(-10.51); // -11
+
+    // 5. floor
+    Math.floor(10.95); // 10
+    Math.floor(11.01); // 11
+    Math.floor(-10.95); // -11
+    Math.floor(-11.01); // -12
+
+    // 6. ceil
+    Math.ceil(10.95); // 11
+    Math.ceil(11.01); // 12
+    Math.ceil(11); // 11
+    Math.ceil(-10.95); // -10
+    Math.ceil(-11.01); // -11
+
+    // 7. sin
+    Math.sin(0); // 0
+    Math.sin(Math.PI / 2); // 1
+  </script>
+</body>
+</html>

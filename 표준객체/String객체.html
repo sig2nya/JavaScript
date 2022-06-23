@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String 객체</title>
+</head>
+<body>
+    <script>
+        var firstStr = "이것도 문자열입니다.";      // 큰따옴표를 사용한 문자열
+        var secondStr = '이것도 문자열입니다.';     // 작은따옴표를 사용한 문자열
+        var thirdStr = "나의 이름은 '홍길동'이야."  // 작은따옴표는 큰따옴표로 둘러싸인 문자열에만 포함될 수 있음.
+        var fourthStr = '나의 이름은 "홍길동"이야.' // 큰따옴표는 작은따옴표로 둘러싸인 문자열에만 포함될 수 있음.
+
+        var strKor = "한글";
+        var strEng = "abcABC";
+        strKor.length; // 2
+        strEng.length; // 6
+
+        // 16진수 이스케이프 시퀀스로 \x 다음은 16진수 수로 인식됨.
+        '\xA2';
+        // 유니코드 이스케이프 시퀀스로 \u 다음은 유니코드로 인식됨.
+        '\u00A2';
+        // ECMAScript 6부터 새롭게 추가된 유니코드 코드 포인트 이스케이프 방식임.
+        String.fromCodePoint(0x00A2);
+
+        document.write("이 문자열은 아주 긴 문자열입니다. \
+        따라서 몇 번에 걸친 줄 나누기가 필요합니다. \
+        자바스크립트에서는 역슬래시와 문자 결합 연산자를 사용하여 줄을 나눌 수 있습니다.<br>");
+        document.write("이 문자열은 아주 긴 문자열입니다." +
+            " 따라서 몇 번에 걸친 줄 나누기가 필요합니다." +
+            " 자바스크립트에서는 역슬래시와 문자 결합 연산자를 사용하여 줄을 나눌 수 있습니다.");
+
+        var str = "JavaScript";
+        var strObj = new String("JavaScript");
+        str;              // "JavaScript"
+        strObj;           // "JavaScript"
+        typeof str;       // string
+        typeof strObj;    // object
+        (str == strObj);  // 문자열 값이 같으므로, true를 반환함.
+        (str === strObj); // 문자열 값은 같지만 타입이 다르므로, false를 반환함.
+    </script>
+</body>
+</html>

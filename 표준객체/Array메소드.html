@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array 메소드</title>
+</head>
+<body>
+    <script>
+        // 1. push : 요소를 배열의 가장 마지막에 추가
+        var arr = [1, true, "JavaScript"];
+        arr.length;               // 3
+        arr.push("자바스크립트");
+        arr.length;               // 4
+        arr;                      // [1,true,JavaScript,자바스크립트]
+        arr.push(2, "거짓");
+        arr.length;               // 6
+        arr;                      // [1,true,JavaScript,자바스크립트,2,거짓]
+
+        // 2. pop : 배열의 가장 마지막 요소를 리턴
+        arr = [1, true, "JavaScript", "자바스크립트"];
+        arr.length;  // 4
+        arr.pop();   // 자바스크립트
+        arr.length;  // 3
+        arr.pop();   // JavaScript
+        arr.length; // 2
+        arr;         // [1,true]
+
+        // 3. shift : 배열의 가장 왼쪽의 요소를 리턴
+        var arr = [1, true, "JavaScript"];
+        arr.length;               // 3
+        arr.push("자바스크립트");
+        arr.length;               // 4
+        arr;                      // [1,true,JavaScript,자바스크립트]
+        arr.push(2, "거짓");
+        arr.length;               // 6
+        arr;                      // [1,true,JavaScript,자바스크립트,2,거짓]
+
+        // 4. unshift : 요소를 배열의 가장 앞에 추가
+        arr = [1, true, "JavaScript"];
+        arr.length;                  // 3
+        arr.unshift("자바스크립트");
+        arr.length;                  // 4
+        arr;                         // [자바스크립트,1,true,JavaScript]
+        arr.unshift(2, "거짓");
+        arr.length;                  // 6
+        arr;                         // [2,거짓,자바스크립트,1,true,JavaScript]
+
+        // 5. reverse : 배열 요소를 전부 반대로 교체
+        arr = [1, true, "JavaScript", "자바스크립트"];
+        arr.reverse(); // [자바스크립트,JavaScript,true,1]
+
+        // 6. sort : 배열을 오름차순으로 정렬
+        var strArr = ["로마", "나라", "감자", "다람쥐"]; // 한글은 ㄱ,ㄴ,ㄷ순으로 정렬됨.
+        var numArr = [10, 21, 1, 2, 3];                  // 숫자는 각 자릿수 별로 비교된 후 정렬됨.
+        strArr.sort(); // [감자,나라,다람쥐,로마]
+        numArr.sort(); // [1,10,2,21,3]
+
+        // 7. splice : 기존 배열 요소를 제거하거나, 새로운 배열 요소 추가
+        arr = [1, true, "JavaScript", "자바스크립트"];
+
+        // 인덱스 1의 요소부터 2개의 요소를 제거한 후, false와 "C언어"를 그 자리에 삽입함.
+        var removedElement = arr.splice(1, 2, false, "C언어");
+        arr;            // [1,false,C언어,자바스크립트]
+        removedElement; // [true,JavaScript]
+
+        // 8. join : 배열 모든 요소를 하나의 문자열로 반환
+        arr = [1, true, "JavaScript"];
+        arr.join();      // 1,true,JavaScript
+        arr.join(' + '); // 1 + true + JavaScript
+        arr.join(' ');   // 1 true JavaScript
+        arr.join('');    // 1trueJavaScript
+
+        // 9. slice : 시작 인덱스부터 종료 인덱스 바로 앞까지 배열 요소 추출하여 새로운 배열 반환
+        arr = [1, true, "JavaScript", "자바스크립트"];
+        arr.slice(1, 3); // [true,JavaScript]
+        arr.slice(1);    // [true,JavaScript,자바스크립트 ]
+
+        // 10. concat : 해당 배열의 뒤에 인수로 전달받은 배열을 합쳐서 만든 새로운 배열을 반환
+        arr = [1, true, "JavaScript"];
+        arr.concat([2, false, "문자열"]); // [1,true,JavaScript,2,false,문자열]
+        arr.concat([2], [3, 4]);          // [1,true,JavaScript,2,3,4] -> 2개 이상의 배열도 한 번에 합칠 수 있음.
+        arr.concat("다섯", [6, 7]);       // [1,true,JavaScript,다섯,6,7] -> 값과 배열도 한 번에 합칠 수 있음.
+
+        // 11. toString : 해당 배열의 모든 요소를 하나의 문자열로 반환
+        arr = [1, true, "JavaScript"];
+        arr.toString(); // '1,true,JavaScript'
+
+        // 12. forEach : 해당 배열의 모든 요소에 대하여 반복적으로 명시된 콜백 함수를 실행
+        arr = [1, true, "JavaScript"];
+        function printArr(value, index, array) {
+            document.write("arr[" + index + "] = " + value + "<br>");
+        }
+        arr.forEach(printArr); // 배열 arr의 각 요소마다 printArr() 함수가 호출됨.
+
+        // 13. map : 해당 배열의 모든 요소에 대하여 반복적으로 명시된 콜백 함수를 실행한 후, 그 실행 결과를 새로운 배열에 담아 반환
+        arr = [1, -2, 3, -4];
+        // 배열 arr의 각 요소마다 Math.abs() 함수가 호출되고 그 결괏값이 배열로 저장됨.
+        var absoluteValues = arr.map(Math.abs);
+        absoluteValues; // [1,2,3,4]
+
+        // 14. filter : 해당 배열의 모든 요소에 대하여 반복적으로 명시된 콜백 함수를 실행한 후, 그 결괏값이 true인 요소들만을 새로운 배열에 담아 반환
+        arr = [-10, 5, 100, -20, 40];
+        function compareValue(value) {
+            return value < 10;
+        }
+        var lessTen = arr.filter(compareValue);
+        lessTen; // [-10,5,-20]
+
+        // 15. every : 해당 배열의 모든 요소에 대하여 반복적으로 명시된 콜백 함수를 실행한 후, 그 결괏값이 모두 true일 때에만 true를 반환
+        arr = [-10, 5, -20, 4];
+        function compareValue(value) {
+            return value < 10; // 배열의 모든 요소가 10보다 작음.
+        }
+        arr.every(compareValue); // true
+
+        // 16. some : 해당 배열의 모든 요소에 대하여 반복적으로 명시된 콜백 함수를 실행한 후, 그 결괏값이 하나라도 true이면 true를 반환
+        arr = [10, 25, -20, 14];
+        function compareValue(value) {
+            return value < 10; // 배열 요소 중 -20만이 10보다 작음.
+        }
+        arr.some(compareValue); // true
+
+        // 17. reduce : 해당 배열의 모든 요소를 하나의 값으로 줄이기 위해, 두 개의 인수를 전달받는 콜백 함수를 실행
+        arr = [1, 2, 3, 4, 5];
+        function sumOfValues(x, y) {
+            return x - y;
+        }
+        arr.reduce(sumOfValues); // 1 - 2 - 3 - 4 - 5 = -13
+
+        // 18. reduceRight : reduce() 메소드와 같은 방식으로 실행되며, 배열의 마지막 요소부터 줄이기 시작
+        arr = [1, 2, 3, 4, 5];
+        function sumOfValues(x, y) {
+            return x - y;
+        }
+        arr.reduceRight(sumOfValues); // 5 - 4 - 3 - 2 - 1 = -5
+
+        // 19. 배열 요소별로 키(key)와 값(value)의 한 쌍으로 이루어진 새로운 배열 반복자 객체(Array Iterator Object)를 배열 형태로 반환
+        arr = [1, true, "JavaScript"];
+        var arrEntries = arr.entries();
+        for (var entry of arrEntries) {
+            document.write(entry + "<br>"); // 배열의 인덱스별로 키(key)와 값(value)의 한 쌍을 출력함.
+        }
+    </script>
+</body>
+</html>

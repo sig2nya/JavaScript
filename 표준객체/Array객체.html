@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array 객체</title>
+</head>
+<body>
+    <script>
+        Array.isArray([]);          // true
+        Array.isArray(new Array()); // true
+        Array.isArray(123);         // false
+        Array.isArray("Array");     // false
+        Array.isArray(true);        // false
+
+        function arrayFrom(){
+            return Array.from(arguments);
+        }
+        Array.from(arrayFrom(1, 2, 3));
+        var myMap = new Map([[1, 2], [3, 4]]);
+        Array.from(myMap);
+        Array.from("JavaScript");
+
+        new Array(10);
+        Array.of(10);
+
+
+    </script>
+</body>
+</html>

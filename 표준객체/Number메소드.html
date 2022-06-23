@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number 메소드</title>
+</head>
+<body>
+  <script>
+      // 1. parseFloat
+    Number.parseFloat("12");
+    Number.parseFloat("12.34");
+    Number.parseFloat("12문자열"); // 12
+    Number.parseFloat("12 34 56"); // 12
+    Number.parseFloat("문자열 56"); // NaN
+
+      // 2. parseInt
+    Number.parseInt("12"); // 12
+    Number.parseInt("12.34"); // 12
+    Number.parseInt("12문자열"); // 12
+    Number.parseInt("12 34 56"); // 12
+    Number.parseInt("문자열 56"); // NaN
+
+      // 3. isNaN
+    Number.isNaN(NaN); // true
+    Number.isNaN(0 / 0); // true
+
+    isNaN("Nan"); // true
+    isNaN(undefined); // true
+    isNaN("문자열"); // true
+
+    Number.isNaN("Nan"); // false
+    Number.isNaN(undefined); // false
+    Number.isNaN("문자열"); // false
+
+      // 4. isFinite
+    Number.isFinite(0); // true
+    Number.isFinite(3e45) // true
+    Number.isFinite(Infinity); // false
+    Number.isFinite(NaN); // false
+
+    isFinite("0"); // true
+    isFinite(null) // true
+
+    Number.isFinite("0"); // false
+    Number.isFinite(null); // false
+
+      // 5. isInteger
+    Number.isInteger(0);        // true
+    Number.isInteger(-100);     // true
+    Number.isInteger(0.1);      // false
+    Number.isInteger("문자열"); // false
+    Number.isInteger(Infinity); // false
+    Number.isInteger(true);     // false
+
+      // 6. isSafeInteger : 64비트 부동 소수점으로 정확히 표현될 수 있는 정수
+    Number.isSafeInteger(10); // true
+    Number.isSafeInteger(Math.pow(2, 53) - 1); // true
+    Number.isSafeInteger(Math.pow(2, 53)); // false
+    Number.isSafeInteger(Infinity); // false
+    Number.isSafeInteger(NaN); // false
+    Number.isSafeInteger(3.14) // false
+
+      // 7. toExponential
+    var num = 12.3456;
+    num.toExponential(); // 1.23456e+1
+    num.toExponential(2); // 1.23e+1
+    num.toExponential(4); // 1.2346e+1
+    12.3456.toExponential(); // 1.23456e+1
+
+      // 8. toFixed
+    var num = 3.14159265;
+    num.toFixed(); // 3.14
+    num.toFixed(2); // 3.1416
+    3.14159265.toFixed(6); // 3.141593
+
+      // 9. toPrecision
+    num.toPrecision();
+    num.toPrecision(2);
+    num.toPrecision(4);
+    3.14159265.toPrecision(6);
+
+      // 10. toString
+    num.toString();      // 255
+    (255).toString();    // 255
+    (3.14).toString();   // 3.14
+    num.toString(2);     // 11111111
+    (100).toString(16);  // 64
+    (-0xff).toString(2); // -11111111
+
+      // 11. valueOf
+    var numObj = new Number(123); // 123의 값을 가지는 Number 인스턴스를 생성함.
+    typeof numObj; // object
+    var num = numObj.valueOf();
+    num; // 123
+    typeof num; // number
+
+
+  </script>
+</body>
+</html>
