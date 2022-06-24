@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 요소의 선택</title>
+</head>
+<body>
+  <script>
+    // 1. HTML 태그 이름을 이용한 선택
+    var selectedItem = document.getElementsByTagName("li");
+    for(var i = 0; i < selectedItem.length; i++){
+        selectedItem.item(i).style.color = "red";
+    }
+
+    // 2. id를 이용한 선택
+    selectedItem = document.getElementById("even");
+    selectedItem.style.color = "red";
+
+    // 3. 클래스를 이용한 선택
+    selectedItem = document.getElementsByClassName("odd");
+    for(var i = 0; i < selectedItem.length; i++){
+        selectedItem.item(i).style.color = "red";
+    }
+
+    // 4. name 속성을 이용한 선택
+    selectedItem = document.getElementsByName("first");
+    for (var i = 0; i < selectedItem.length; i++) {
+        selectedItem.item(i).style.color = "red";
+    }
+
+    // 5. CSS 선택자를 이용한 선택
+    selectedItem = document.querySelectorAll("li.odd");
+    for (var i = 0; i < selectedItem.length; i++) {
+        selectedItem.item(i).style.color = "red";
+    }
+
+    // 6. 객체 집합을 이용한 선택
+    var title = document.title; // <title> 요소를 선택함.
+    document.write(title);
+
+    // 7. DOM 요소의 내용 변경
+    var str = document.getElementById("text");
+    str.innerHTML = "이 문장으로 바뀌었습니다!";
+
+    // 8. HTML 요소 이름을 이용한 속성 값 변경
+    var link = document.getElementById("link");          // 아이디가 "link"인 요소를 선택함.
+    link.href = "/javascript/intro"; // 해당 요소의 href 속성값을 변경함.
+    link.innerHTML = "자바스크립트 수업 바로 가기!";     // 해당 요소의 내용을 변경함.
+
+    // 9. DOM 요소 스타일 변경
+    var str = document.getElementById("text");
+    function changeRedColor() { str.style.color = "red"; }
+    function changeBlackColor() { str.style.color = "black"; }
+  </script>
+</body>
+</html>
