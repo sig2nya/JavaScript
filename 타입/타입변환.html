@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>타입 변환</title>
+</head>
+<body>
+  <script>
+      // 1. 타입 변환
+    var num = 20;
+    num = "이십";
+    document.write(num + "</br>");
+
+    var num = 30; // 재선언을 하게 된다면, 변수의 값만 바뀐 것과 같음.
+    document.write("재선언 : " + num + "</br>");
+
+      // 2. 묵시적 타입 변환
+    document.write("숫자와 문자열의 덧셈 : " + 10 + "문자열" + "</br>");
+    document.write("문자열의 곱 : " + "3" * "5" + "</br>");
+    document.write("숫자와 문자열의 '-' 연산 : " + (1 - "문자열") + "</br>"); // NaN
+
+      // 3. 명시적 타입 변환
+    document.write(Number("10")  + "</br>");
+    document.write(String(true) + "</br>");
+    document.write(Boolean(0) + "</br>");
+    document.write(Object(3) + "</br>");
+
+      // 4. boolean 값을 문자열로 변환
+    document.write(String(true) + "</br>");
+    document.write(false.toString() + "</br>");
+
+      // 5. 날짜를 문자열 혹은 숫자로 전환
+    String(Date());        // Mon May 16 2016 19:35:25 GMT+0900
+    Date().toString();     // Mon May 16 2016 19:35:25 GMT+0900
+    var date = new Date(); // Date 객체 생성
+    date.getFullYear();    // 2016
+    date.getTime();        // 1463394925632 -> 1970년 1월 1일부터 현재까지의 시간을 밀리초 단위의 숫자로 반환함.
+
+      // 6. boolean 값을 숫자로 변환
+    Number(true);  // 숫자 1
+    Number(false); // 숫자 0
+  </script>
+</body>
+</html>

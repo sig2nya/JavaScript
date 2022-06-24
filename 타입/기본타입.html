@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>기본 타입</title>
+</head>
+
+<body>
+    1. 원시 타입 5가지</br>
+     - 숫자</br>
+     - 문자</br>
+     - boolean</br>
+     - undefined</br>
+     - symbol</br>
+    <script>
+        // 1. 기본 타입
+        var num = 10; // 숫자
+        var myName = "홍길동"; // 문자열
+        var str; // undefined
+
+        // 2. 숫자
+        var firstNum = 10;
+        var secondNum = 10.00;
+        var thirdNum = 10e6;
+
+        // 3. 문자열
+        var firstStr = "이것도 문자열입니다.";
+        var secondStr = '이것도 문자열입니다.';
+        var thirdStr = "나의 이름은 '홍길동'이야.";
+        var fourthStr = '나의 이름은 "홍길동"이야.';
+
+        // 4. 문자 type과 숫자 type의 연산
+        str = "JavaScript";
+        document.write("숫자 + 문자 Type : " + num + str  + "</br>");
+
+        // 5. boolean
+        firstNum = 10; secondNum = 11;
+        document.write((firstNum == secondNum)  + "</br>");
+
+        // 6. Symbol : 유일하고 변경할 수 없는 타입. 객체의 프로퍼티를 위한 식별자.
+        var sym = Symbol("JavaScript");
+        var symObj = Object(sym);
+
+        // 7. typeof : 피연산자의 type을 반환(피연산자가 오직 하나)
+        typeof 10; // Number
+        typeof "문자열"; // String
+        typeof true; // boolean
+        typeof undefined; // undefined
+        typeof null; // object
+
+        // 8. null / undefined
+        var num; //
+        var str = null; // object
+        typeof secondNum;
+        document.write((null == undefined)  + "</br>"); // true
+        document.write((null === undefined)  + "</br>");
+
+        // 9. 객체
+        var dog = { name : "해피", age : 3};
+        document.write("강아지의 이름 : " + dog.name + " / 강아지의 나이 : " + dog.age + "</br>");
+    </script>
+</body>
+</html>
